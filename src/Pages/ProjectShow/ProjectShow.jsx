@@ -1,15 +1,18 @@
 import React from "react";
 import { dataProject } from "../../Utils/dataProjects";
+import { useParams } from "react-router";
 
 function ProjectShow() {
+  const { id } = useParams();
+
   return (
     <main className="section">
       <div className="container">
         <div className="project-details">
-          <h1 className="title-1">Video service</h1>
+          <h1 className="title-1">{dataProject[id].title}</h1>
 
           <img
-            src={dataProject[0].imgBig}
+            src={dataProject[id].imgBig}
             alt="ooo"
             className="project-details__cover"
           />

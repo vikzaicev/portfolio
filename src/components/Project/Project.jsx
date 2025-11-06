@@ -1,12 +1,13 @@
 import React from "react";
+import { NavLink } from "react-router";
 
-function Project({ project }) {
+function Project({ project, id }) {
   return (
     <li className="project">
-      <a href="./project-page.html">
+      <NavLink to={`/Project/${id}`}>
         <img src={project.img} alt="Project img" className="project__img" />
         <h3 className="project__title">{project.title}</h3>
-      </a>
+      </NavLink>
     </li>
   );
 }

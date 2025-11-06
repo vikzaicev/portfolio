@@ -7,8 +7,8 @@ export const Projects = () => {
       <div className="container">
         <h2 className="title-1">Projects</h2>
         <ul className="projects">
-          {dataProject.map((project) => (
-            <Project key={project.title} project={project} />
+          {dataProject.map((project, index) => (
+            <Project key={project.title} id={index} project={project} />
           ))}
         </ul>
       </div>

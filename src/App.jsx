@@ -1,3 +1,7 @@
+import { BrowserRouter, Routes, Route } from "react-router";
+
+import ScrollToTop from "./Utils/ScrollToTop";
+
 import { Footer } from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
 import Contacts from "./Pages/Contacts/Contacts";
@@ -7,14 +11,19 @@ import ProjectShow from "./Pages/ProjectShow/ProjectShow";
 
 function App() {
   return (
-    <div className="app">
-      <Nav />
-      {/* <Home /> */}
-      {/* <Contacts /> */}
-      {/* <Projects /> */}
-      <ProjectShow />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Nav />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Contacts" element={<Contacts />} />
+          <Route path="/Projects" element={<Projects />} />
+          <Route path="/Project/:id" element={<ProjectShow />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
