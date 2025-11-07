@@ -1,16 +1,19 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router";
 import sun from "./../../img/icons/sun.svg";
 import moon from "./../../img/icons/moon.svg";
+import { useToLocalStorage } from "../../Utils/useToLocalStorage";
 
 function Nav() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useToLocalStorage(
+    "darkMode",
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
   const btnRef = useRef(null);
 
   const BtnClickHandler = () => {
     setDark((prev) => !prev);
   };
-  console.log(btnRef.current);
 
   useEffect(() => {
     if (dark) {
